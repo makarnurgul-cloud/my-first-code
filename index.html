@@ -3,165 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Резюме — Екі адамның резюмесі</title>
-    
-    <!-- CSS СТИЛЬДЕРІН БІРДЕЙ ОСЫ ЖЕРГЕ ЖАЗАМЫЗ -->
+    <title>Топтық резюме</title>
     <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f0f2f5;
-        }
-
-        /* Экранды ортадан екіге тең бөлу (Окно сияқты) */
-        .resume-container {
-            display: flex;
-            flex-wrap: wrap;
-            width: 100vw;
-            min-height: 100vh;
-        }
-
-        /* Екі жақтың да жалпы стилі */
-        .resume-box {
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: sans-serif; }
+        body { display: flex; height: 100vh; }
+        .card {
             flex: 1;
-            min-width: 320px;
-            padding: 40px;
-            border-right: 2px solid #e2e8f0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            color: #333;
+            transition: 0.3s;
+            cursor: pointer;
+            padding: 20px;
         }
-
-        /* СОЛ ЖАҚ: БІРІНШІ АДАМНЫҢ СТИЛІ */
-        .person-1 {
-            background-color: #ffffff;
-        }
-        .person-1 h1 {
-            color: #1e40af;
-        }
-        .person-1 h2 {
-            border-bottom: 2px solid #93c5fd;
-            color: #1e3a8a;
-        }
-
-        /* ОҢ ЖАҚ: ЕКІНШІ АДАМНЫҢ СТИЛІ */
-        .person-2 {
-            background-color: #f8fafc;
-        }
-        .person-2 h1 {
-            color: #0d9488;
-        }
-        .person-2 h2 {
-            border-bottom: 2px solid #99f6e4;
-            color: #115e59;
-        }
-
-        /* ЖАЛПЫ ЕРЕЖЕЛЕР */
-        h1 {
-            font-size: 26px;
-            margin-bottom: 5px;
-        }
-
-        .subtitle {
-            font-weight: 600;
-            color: #64748b;
-            margin-bottom: 25px;
-        }
-
-        .section {
-            margin-bottom: 25px;
-        }
-
-        h2 {
-            font-size: 18px;
-            padding-bottom: 5px;
-            margin-bottom: 10px;
-        }
-
-        ul {
-            padding-left: 20px;
-        }
-
-        li {
-            margin-bottom: 6px;
-            color: #334155;
-        }
-
-        p {
-            color: #334155;
-            line-height: 1.5;
-            margin-bottom: 5px;
-        }
+        .nurgul-card { background-color: #f4f6f9; border-right: 2px solid #ccc; }
+        .asel-card { background-color: #eef7f2; }
+        .card:hover { transform: scale(1.02); opacity: 0.9; }
+        .avatar { width: 150px; height: 150px; border-radius: 50%; object-fit: cover; margin-bottom: 20px; border: 3px solid #fff; }
+        h1 { font-size: 32px; margin-bottom: 10px; }
+        p { font-size: 18px; color: #666; }
+        .btn { margin-top: 20px; padding: 10px 20px; background: #007bff; color: white; border-radius: 5px; }
     </style>
 </head>
 <body>
 
-    <div class="resume-container">
+    <a href="nurgul.html" class="card nurgul-card">
+        <img src="nurgul.jpg" alt="Макар Нұргүл" class="avatar">
+        <h1>Макар Нұргүл</h1>
+        <p>IT Specialist / Software Engineer</p>
+        <div class="btn">Резюмені қарау</div>
+    </a>
 
-        <!-- ================= СОЛ ЖАҚ: 1-АДАМ ================= -->
-        <div class="resume-box person-1">
-            <header>
-                <h1>Макар Нұргүл</h1>
-                <p class="subtitle">IT Specialist / Software Engineer</p>
-            </header>
-
-            <div class="section">
-                <h2>Жеке ақпарат</h2>
-                <p><strong>Оқу орны:</strong> Astana International University</p>
-                <p><strong>Мамандығы:</strong> Есептеу техникасы және БҚ</p>
-                <p><strong>Курс:</strong> 3-курс</p>
-            </div>
-
-            <div class="section">
-                <h2>Дағдылар (Skills)</h2>
-                <ul>
-                    <li>HTML5 / CSS3 / JavaScript</li>
-                    <li>Python / Java / PHP</li>
-                    <li>Git & GitHub / Docker</li>
-                    <li>Cisco Packet Tracer / Networking</li>
-                </ul>
-            </div>
-
-            <div class="section">
-                <h2>Мақсаты</h2>
-                <p>IT саласында тәжірибе жинақтап, сапалы бағдарламалық өнімдер жасау және кәсіби маман болу.</p>
-            </div>
-        </div>
-
-
-        <!-- ================= ОҢ ЖАҚ: 2-АДАМ ================= -->
-        <div class="resume-box person-2">
-            <header>
-                <h1>Әсел Халел</h1>
-                <p class="subtitle">UI/UX Designer / Frontend Developer</p>
-            </header>
-
-            <div class="section">
-                <h2>Жеке ақпарат</h2>
-                <p><strong>Оқу орны:</strong> Astana International University</p>
-                <p><strong>Мамандығы:</strong> Ақпараттық жүйелер</p>
-                <p><strong>Курс:</strong> 3-курс</p>
-            </div>
-
-            <div class="section">
-                <h2>Дағдылар (Skills)</h2>
-                <ul>
-                    <li>Figma / Adobe XD</li>
-                    <li>HTML / CSS / Bootstrap</li>
-                    <li>User Research & Wireframing</li>
-                    <li>Responsive Web Design</li>
-                </ul>
-            </div>
-
-            <div class="section">
-                <h2>Мақсаты</h2>
-                <p>Қолданушыларға ыңғайлы, заманауи және әдемі веб-интерфейстерді жобалау мен дамыту.</p>
-            </div>
-        </div>
-
-    </div>
+    <a href="asel.html" class="card asel-card">
+        <img src="asel.jpg" alt="Халел Әсел" class="avatar">
+        <h1>Халел Әсел</h1>
+        <p>UI/UX Designer / Frontend Developer</p>
+        <div class="btn">Резюмені қарау</div>
+    </a>
 
 </body>
 </html>
