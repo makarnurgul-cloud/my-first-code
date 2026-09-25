@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM тапсырмалары</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f4f8;
+            padding: 40px;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #4a4ae8;
+        }
+
+        .test {
+            background: #f1f1ff;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 10px;
+        }
+
+        .active {
+            background: #d8ffd8;
+            border: 2px solid green;
+        }
+
+        .new-div {
+            background: #e6f7ff;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 10px;
+        }
+
+        .class-info {
+            color: #777;
+            margin-left: 15px;
+        }
+
+        #changeText {
+            padding: 15px;
+            background: #fff3cd;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        #changeText:hover {
+            background: #ffe69c;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            background: #4a4ae8;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1 id="myId">Ескі мәтін</h1>
+
+    <div class="old">
+        Бұл ескі элемент
+    </div>
+
+    <div class="test active">
+        Бірінші элемент
+    </div>
+
+    <div class="test">
+        Екінші элемент
+    </div>
+
+    <p id="changeText">
+        Бұл ауыспалы абзац — басып көр 👆
+    </p>
+
+</div>
+
+<script>
+
+    // 1. ID бойынша элементті тауып,
+    // мәтінін өзгерту
+    let element = document.getElementById("myId");
+    element.textContent = "Сәлем, әлем!";
+
+    // 2. Жаңа div жасау
+    let newDiv = document.createElement("div");
+
+    newDiv.className = "new-div";
+    newDiv.textContent = "Мен жаңа элементпін";
+
+    document.querySelector(".container").appendChild(newDiv);
+
+    // 3. Ескі элементті жою
+    let oldElement = document.querySelector(".old");
+    oldElement.remove();
+
+    // 4. Абзацты басқанда түсі мен өлшемін өзгерту
+    let paragraph = document.getElementById("changeText");
+
+    paragraph.addEventListener("click", function() {
+        paragraph.style.color = "red";
+        paragraph.style.fontSize = "25px";
+    });
+
+    // 5. active класын қосу немесе алып тастау
+    let elements = document.querySelectorAll(".test");
+
+    elements.forEach(function(element) {
+        element.classList.toggle("active");
+    });
+
+    // 6. Барлық кластарды консольге шығару
+    elements.forEach(function(element) {
+        console.log(element.classList);
+    });
+
+    // 7. Кластарды p тегінде шығару
+    elements.forEach(function(element) {
+
+        let p = document.createElement("p");
+
+        p.className = "class-info";
+        p.textContent = "Кластар: " + element.className;
+
+        element.after(p);
+    });
+
+</script>
+
+</body>
+</html>
