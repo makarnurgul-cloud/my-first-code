@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#090d18">
   <title>Студенттер портфолиосы</title>
+
   <style>
     :root {
       color-scheme: dark;
@@ -15,7 +16,7 @@
       --purple: #a879ff;
       --blue: #55b8ff;
       --mint: #57e6c1;
-      --border: rgba(255, 255, 255, 0.1);
+      --border: rgba(255, 255, 255, .1);
     }
 
     * {
@@ -28,8 +29,8 @@
       overflow-x: hidden;
       color: var(--text);
       background:
-        radial-gradient(ellipse at 14% 10%, rgba(93, 70, 190, 0.2), transparent 36%),
-        radial-gradient(ellipse at 90% 30%, rgba(36, 139, 190, 0.13), transparent 34%),
+        radial-gradient(ellipse at 14% 10%, rgba(93, 70, 190, .2), transparent 36%),
+        radial-gradient(ellipse at 90% 30%, rgba(36, 139, 190, .13), transparent 34%),
         var(--bg);
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
@@ -60,8 +61,8 @@
       justify-content: space-between;
       min-height: 78px;
       padding: 0 clamp(20px, 6vw, 88px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.07);
-      background: rgba(9, 13, 24, 0.72);
+      border-bottom: 1px solid rgba(255, 255, 255, .07);
+      background: rgba(9, 13, 24, .72);
       backdrop-filter: blur(18px);
     }
 
@@ -72,7 +73,7 @@
       color: var(--text);
       font-size: 15px;
       font-weight: 700;
-      letter-spacing: -0.02em;
+      letter-spacing: -.02em;
       text-decoration: none;
     }
 
@@ -81,9 +82,9 @@
       width: 36px;
       height: 36px;
       place-items: center;
-      border: 1px solid rgba(168, 121, 255, 0.42);
+      border: 1px solid rgba(168, 121, 255, .42);
       border-radius: 12px;
-      background: linear-gradient(140deg, rgba(168, 121, 255, 0.24), rgba(85, 184, 255, 0.12));
+      background: linear-gradient(140deg, rgba(168, 121, 255, .24), rgba(85, 184, 255, .12));
       color: #d8c2ff;
     }
 
@@ -121,7 +122,7 @@
     .nav-button:hover,
     .nav-button.active {
       border-color: var(--border);
-      background: rgba(255, 255, 255, 0.055);
+      background: rgba(255, 255, 255, .055);
       color: var(--text);
     }
 
@@ -167,7 +168,7 @@
       content: "";
     }
 
-    h1, h2, h3, p {
+    h1, h2, p {
       margin-top: 0;
     }
 
@@ -427,22 +428,6 @@
     .code-green { color: #79dfb2; }
     .code-yellow { color: #f2d27e; }
 
-    .page-heading {
-      margin-bottom: 30px;
-    }
-
-    .page-heading h1 {
-      margin: 0 0 10px;
-      font-size: clamp(32px, 5vw, 48px);
-      letter-spacing: -.055em;
-    }
-
-    .page-heading p {
-      margin: 0;
-      color: var(--muted);
-      line-height: 1.7;
-    }
-
     .back-button {
       display: inline-flex;
       align-items: center;
@@ -466,6 +451,22 @@
     .back-button svg {
       width: 15px;
       height: 15px;
+    }
+
+    .page-heading {
+      margin-bottom: 30px;
+    }
+
+    .page-heading h1 {
+      margin: 0 0 10px;
+      font-size: clamp(32px, 5vw, 48px);
+      letter-spacing: -.055em;
+    }
+
+    .page-heading p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.7;
     }
 
     .profile-grid {
@@ -546,152 +547,123 @@
       font-weight: 650;
     }
 
-    .task-layout {
+    .task-sections {
       display: grid;
-      grid-template-columns: 1fr .88fr;
       gap: 20px;
+      max-width: 850px;
     }
 
-    .task-panel {
-      padding: 25px;
+    .task-section {
+      padding: 24px;
     }
 
-    .task-panel h2 {
-      margin-bottom: 8px;
-      font-size: 19px;
+    .task-section h2 {
+      margin-bottom: 20px;
+      font-size: 21px;
       letter-spacing: -.03em;
     }
 
-    .task-panel > p {
-      margin-bottom: 20px;
+    .task-demo {
+      display: grid;
+      gap: 12px;
+    }
+
+    .demo-label {
+      margin-bottom: 2px;
       color: var(--muted);
+      font-size: 12px;
+    }
+
+    #my-element,
+    .new-div,
+    .old-element,
+    .toggle-element,
+    .classes-output {
+      padding: 12px 14px;
+      border: 1px solid rgba(255, 255, 255, .09);
+      border-radius: 12px;
+      background: rgba(255, 255, 255, .035);
+      color: #e9edfa;
+      font-size: 14px;
+    }
+
+    .new-div {
+      border-color: rgba(85, 184, 255, .2);
+      background: rgba(85, 184, 255, .06);
+    }
+
+    .old-element {
+      color: #ff8291;
+    }
+
+    .clickable-paragraph {
+      width: fit-content;
+      margin: 0;
+      padding: 12px 14px;
+      border: 1px solid rgba(168, 121, 255, .2);
+      border-radius: 12px;
+      background: rgba(168, 121, 255, .07);
+      color: #dfd1ff;
+      cursor: pointer;
+      transition: background .2s ease, transform .2s ease;
+    }
+
+    .clickable-paragraph:hover {
+      transform: translateY(-2px);
+      background: rgba(168, 121, 255, .13);
+    }
+
+    .removed-message {
+      margin: 0;
+      color: var(--mint);
+      font-size: 12px;
+    }
+
+    .toggle-element {
+      width: fit-content;
+      min-width: 190px;
+      transition: background .2s ease, border-color .2s ease, color .2s ease;
+    }
+
+    .toggle-element.active {
+      border-color: rgba(87, 230, 193, .6);
+      background: rgba(87, 230, 193, .15);
+      color: #8af1d5;
+      box-shadow: 0 0 22px rgba(87, 230, 193, .12);
+    }
+
+    .demo-button {
+      width: fit-content;
+      min-height: 42px;
+      padding: 0 15px;
+      border: 1px solid rgba(85, 184, 255, .35);
+      border-radius: 11px;
+      background: rgba(85, 184, 255, .1);
+      color: #c6eaff;
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: 700;
+      transition: background .2s ease, transform .2s ease;
+    }
+
+    .demo-button:hover {
+      transform: translateY(-2px);
+      background: rgba(85, 184, 255, .18);
+    }
+
+    .classes-output {
+      min-height: 48px;
+      margin: 0;
+      overflow-wrap: anywhere;
+      color: #cbb7ff;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
       font-size: 12px;
       line-height: 1.7;
     }
 
-    .task-list {
-      display: grid;
-      gap: 10px;
+    [hidden] {
+      display: none !important;
     }
-
-    .task-item {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 13px;
-      border: 1px solid rgba(255, 255, 255, .075);
-      border-radius: 14px;
-      background: rgba(255, 255, 255, .03);
-    }
-
-    .task-check {
-      display: grid;
-      flex: 0 0 auto;
-      width: 25px;
-      height: 25px;
-      place-items: center;
-      border: 1px solid rgba(87, 230, 193, .27);
-      border-radius: 8px;
-      background: rgba(87, 230, 193, .1);
-      color: var(--mint);
-      font-size: 13px;
-    }
-
-    .task-item strong {
-      display: block;
-      margin-bottom: 3px;
-      font-size: 12px;
-    }
-
-    .task-item span:last-child {
-      color: var(--muted);
-      font-size: 10px;
-    }
-
-    .interface-preview {
-      overflow: hidden;
-      border: 1px solid rgba(255, 255, 255, .09);
-      border-radius: 18px;
-      background: #0c1220;
-    }
-
-    .preview-toolbar {
-      display: flex;
-      align-items: center;
-      gap: 7px;
-      height: 38px;
-      padding: 0 13px;
-      border-bottom: 1px solid rgba(255, 255, 255, .07);
-      color: #8290aa;
-      font-size: 10px;
-    }
-
-    .preview-body {
-      display: grid;
-      grid-template-columns: 76px 1fr;
-      min-height: 211px;
-    }
-
-    .preview-sidebar {
-      padding: 14px 9px;
-      border-right: 1px solid rgba(255, 255, 255, .06);
-    }
-
-    .sidebar-line {
-      height: 7px;
-      margin-bottom: 12px;
-      border-radius: 8px;
-      background: rgba(255, 255, 255, .1);
-    }
-
-    .sidebar-line:first-child {
-      width: 85%;
-      background: rgba(168, 121, 255, .62);
-    }
-
-    .sidebar-line:nth-child(2) { width: 65%; }
-    .sidebar-line:nth-child(3) { width: 74%; }
-    .sidebar-line:nth-child(4) { width: 54%; }
-
-    .preview-content {
-      padding: 16px;
-    }
-
-    .preview-title {
-      width: 55%;
-      height: 10px;
-      margin-bottom: 14px;
-      border-radius: 8px;
-      background: rgba(238, 242, 255, .75);
-    }
-
-    .preview-tiles {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 9px;
-      margin-bottom: 12px;
-    }
-
-    .preview-tile {
-      height: 48px;
-      border: 1px solid rgba(168, 121, 255, .13);
-      border-radius: 10px;
-      background: linear-gradient(140deg, rgba(168, 121, 255, .13), rgba(85, 184, 255, .045));
-    }
-
-    .preview-tile:nth-child(2) {
-      border-color: rgba(87, 230, 193, .12);
-      background: linear-gradient(140deg, rgba(87, 230, 193, .11), rgba(85, 184, 255, .04));
-    }
-
-    .preview-bar {
-      height: 7px;
-      margin: 9px 0;
-      border-radius: 8px;
-      background: rgba(255, 255, 255, .075);
-    }
-
-    .preview-bar.short { width: 63%; }
 
     .site-footer {
       padding: 18px 20px 25px;
@@ -704,11 +676,9 @@
       color: #a68ae2;
     }
 
-    [hidden] {
-      display: none !important;
-    }
-
-    button:focus-visible {
+    button:focus-visible,
+    a:focus-visible,
+    .clickable-paragraph:focus-visible {
       outline: 2px solid #a879ff;
       outline-offset: 3px;
     }
@@ -724,8 +694,7 @@
       }
 
       .main-cards,
-      .profile-grid,
-      .task-layout {
+      .profile-grid {
         grid-template-columns: 1fr;
       }
 
@@ -780,7 +749,7 @@
 
       .main-card,
       .profile-card,
-      .task-panel {
+      .task-section {
         padding: 21px;
       }
 
@@ -820,6 +789,7 @@
         </svg>
         Басты бет
       </button>
+
       <button class="nav-button" type="button" data-page-link="resume" aria-label="Резюме">
         <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
           <path d="M7 3h7l5 5v13H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
@@ -827,6 +797,7 @@
         </svg>
         Резюме
       </button>
+
       <button class="nav-button" type="button" data-page-link="tasks" aria-label="Тапсырмалар">
         <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
           <path d="M9 6h11M9 12h11M9 18h11M4 6h.01M4 12h.01M4 18h.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
@@ -947,6 +918,7 @@
               <p>IT Specialist</p>
             </div>
           </div>
+
           <dl class="profile-info">
             <div class="info-item">
               <dt>Университет</dt>
@@ -961,6 +933,7 @@
               <dd>IT Specialist</dd>
             </div>
           </dl>
+
           <div class="tag-list" aria-label="Дағдылары">
             <span class="tag">IT</span>
             <span class="tag">Технология</span>
@@ -976,6 +949,7 @@
               <p>UI/UX Designer</p>
             </div>
           </div>
+
           <dl class="profile-info">
             <div class="info-item">
               <dt>Университет</dt>
@@ -990,6 +964,7 @@
               <dd>UI/UX Designer</dd>
             </div>
           </dl>
+
           <div class="tag-list" aria-label="Дағдылары">
             <span class="tag">UI дизайн</span>
             <span class="tag">UX зерттеу</span>
@@ -1008,70 +983,48 @@
       </button>
 
       <div class="page-heading">
-        <div class="eyebrow">Оқу және тәжірибе</div>
-        <h1>Орындалған <span class="gradient-text">тапсырмалар</span></h1>
-        <p>Кодтау мен интерфейс дизайны бойынша жұмыстарымыздың үлгісі.</p>
+        <div class="eyebrow">Орындалған тапсырмалар</div>
+        <h1><span class="gradient-text">Тапсырмалар</span></h1>
       </div>
 
-      <div class="task-layout">
-        <article class="glass-card task-panel">
-          <h2>Жобалар мен тапсырмалар</h2>
-          <p>Әртүрлі дағдыларды тәжірибеде қолдануға арналған оқу жұмыстары.</p>
+      <div class="task-sections">
+        <article class="glass-card task-section">
+          <h2>1-тапсырма</h2>
+          <div class="task-demo" id="taskOneDemo">
+            <span class="demo-label">ID элементінің мәтіні:</span>
 
-          <div class="task-list">
-            <div class="task-item">
-              <span class="task-check" aria-hidden="true">✓</span>
-              <div>
-                <strong>Жеке портфолио беті</strong>
-                <span>HTML, CSS және JavaScript</span>
-              </div>
-            </div>
-            <div class="task-item">
-              <span class="task-check" aria-hidden="true">✓</span>
-              <div>
-                <strong>Интерфейс прототипі</strong>
-                <span>UI/UX дизайн және қолданушы тәжірибесі</span>
-              </div>
-            </div>
-            <div class="task-item">
-              <span class="task-check" aria-hidden="true">✓</span>
-              <div>
-                <strong>Адаптивті веб-дизайн</strong>
-                <span>Мобильді және компьютерлік экрандар</span>
-              </div>
-            </div>
+            <div id="my-element"></div>
+
+            <span class="demo-label">Жаңа қосылған элемент:</span>
+
+            <div class="new-element-container" id="newElementContainer"></div>
+
+            <span class="demo-label">Абзацты басып көріңіз:</span>
+
+            <div id="paragraphContainer"></div>
+
+            <p class="removed-message" id="removedMessage" hidden>
+              Ескі элемент өшірілді.
+            </p>
           </div>
         </article>
 
-        <article class="glass-card task-panel">
-          <h2>Интерфейс превьюі</h2>
-          <p>Жобаның құрылымы мен визуалды көрінісінің шағын үлгісі.</p>
+        <article class="glass-card task-section">
+          <h2>2-тапсырма</h2>
+          <div class="task-demo">
+            <span class="demo-label">Белсенді класын қосып/өшіру:</span>
 
-          <div class="interface-preview" aria-label="Жоба интерфейсінің макеті">
-            <div class="preview-toolbar">
-              <span class="window-dot"></span>
-              <span class="window-dot"></span>
-              <span class="window-dot"></span>
-              <span style="margin-left: auto">student-project.app</span>
+            <div class="toggle-element" id="toggleElement">
+              Арнайы элемент
             </div>
-            <div class="preview-body">
-              <div class="preview-sidebar" aria-hidden="true">
-                <div class="sidebar-line"></div>
-                <div class="sidebar-line"></div>
-                <div class="sidebar-line"></div>
-                <div class="sidebar-line"></div>
-              </div>
-              <div class="preview-content" aria-hidden="true">
-                <div class="preview-title"></div>
-                <div class="preview-tiles">
-                  <div class="preview-tile"></div>
-                  <div class="preview-tile"></div>
-                </div>
-                <div class="preview-bar"></div>
-                <div class="preview-bar short"></div>
-                <div class="preview-bar"></div>
-              </div>
-            </div>
+
+            <button class="demo-button" type="button" id="toggleActiveButton">
+              active класын қосу / өшіру
+            </button>
+
+            <span class="demo-label">Элементтердің кластары:</span>
+
+            <p class="classes-output" id="classesListP"></p>
           </div>
         </article>
       </div>
@@ -1119,6 +1072,69 @@
           showPage(button.dataset.pageLink);
         });
       });
+
+      // 1-тапсырма
+      const myElement = document.getElementById("my-element");
+      myElement.textContent = "Сәлем, әлем!";
+
+      const newDiv = document.createElement("div");
+      newDiv.className = "new-div";
+      newDiv.textContent = "Мен жаңа элементпін";
+      document.getElementById("newElementContainer").appendChild(newDiv);
+
+      const oldElement = document.createElement("div");
+      oldElement.className = "old-element";
+      oldElement.textContent = "Өшірілетін ескі элемент";
+      document.getElementById("taskOneDemo").appendChild(oldElement);
+
+      document.querySelector(".old-element").remove();
+      document.getElementById("removedMessage").hidden = false;
+
+      const variableParagraph = document.createElement("p");
+      variableParagraph.className = "clickable-paragraph";
+      variableParagraph.textContent = "Бұл ауыспалы абзац";
+      variableParagraph.tabIndex = 0;
+
+      function changeParagraphStyle() {
+        variableParagraph.style.color = "red";
+        variableParagraph.style.fontSize = "24px";
+      }
+
+      variableParagraph.addEventListener("click", changeParagraphStyle);
+      variableParagraph.addEventListener("keydown", (event) => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          changeParagraphStyle();
+        }
+      });
+
+      document.getElementById("paragraphContainer").appendChild(variableParagraph);
+
+      // 2-тапсырма
+      const toggleElement = document.getElementById("toggleElement");
+      const toggleButton = document.getElementById("toggleActiveButton");
+      const classesListP = document.getElementById("classesListP");
+
+      function printAllClasses() {
+        const classNames = [
+          ...new Set(
+            [...document.querySelectorAll("*")]
+              .flatMap((element) => [...element.classList])
+          )
+        ];
+
+        console.log("Барлық элемент кластары:", classNames);
+        classesListP.textContent = classNames.length
+          ? classNames.join(", ")
+          : "Кластар жоқ";
+      }
+
+      toggleButton.addEventListener("click", () => {
+        toggleElement.classList.toggle("active");
+        printAllClasses();
+      });
+
+      printAllClasses();
     })();
   </script>
 </body>
