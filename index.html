@@ -12,15 +12,10 @@
       --bg: #090d18;
       --text: #f4f6ff;
       --muted: #9ba6bf;
-      --purple: #a879ff;
-      --blue: #55b8ff;
-      --mint: #57e6c1;
       --border: rgba(255, 255, 255, .1);
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       min-height: 100vh;
@@ -31,8 +26,8 @@
         radial-gradient(ellipse at 14% 10%, rgba(93, 70, 190, .2), transparent 36%),
         radial-gradient(ellipse at 90% 30%, rgba(36, 139, 190, .13), transparent 34%),
         var(--bg);
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      transition: color .25s ease, background .25s ease;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      transition: background .25s, color .25s;
     }
 
     body::before {
@@ -44,7 +39,6 @@
         linear-gradient(90deg, rgba(255,255,255,.018) 1px, transparent 1px);
       background-size: 52px 52px;
       content: "";
-      mask-image: linear-gradient(to bottom, black, transparent 85%);
       pointer-events: none;
     }
 
@@ -60,80 +54,7 @@
         var(--bg);
     }
 
-    body.light-theme::before {
-      background-image:
-        linear-gradient(rgba(40, 54, 80, .035) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(40, 54, 80, .035) 1px, transparent 1px);
-    }
-
-    body.light-theme .site-header {
-      border-bottom-color: rgba(35, 50, 78, .12);
-      background: rgba(244, 247, 253, .83);
-    }
-
-    body.light-theme .brand,
-    body.light-theme .nav-button {
-      color: var(--text);
-    }
-
-    body.light-theme .nav-button:hover,
-    body.light-theme .nav-button.active {
-      border-color: rgba(35, 50, 78, .14);
-      background: rgba(255, 255, 255, .7);
-    }
-
-    body.light-theme .glass-card {
-      border-color: rgba(35, 50, 78, .13);
-      background: linear-gradient(145deg, rgba(255, 255, 255, .86), rgba(244, 247, 253, .84));
-      box-shadow: 0 20px 60px rgba(43, 59, 94, .1), inset 0 1px rgba(255, 255, 255, .8);
-    }
-
-    body.light-theme .student-row,
-    body.light-theme .task-item {
-      border-color: rgba(35, 50, 78, .1);
-      background: rgba(255, 255, 255, .55);
-    }
-
-    body.light-theme .info-item {
-      border-top-color: rgba(35, 50, 78, .1);
-    }
-
-    body.light-theme .info-item dd {
-      color: #26344e;
-    }
-
-    body.light-theme .back-button {
-      border-color: rgba(35, 50, 78, .14);
-      background: rgba(255, 255, 255, .56);
-      color: #26344e;
-    }
-
-    body.light-theme #my-element,
-    body.light-theme .new-div,
-    body.light-theme .old-element,
-    body.light-theme .toggle-element,
-    body.light-theme .classes-output {
-      color: #26344e;
-      background: rgba(255, 255, 255, .62);
-    }
-
-    body.light-theme .new-div {
-      border-color: rgba(85, 184, 255, .35);
-    }
-
-    body.light-theme .toggle-element.active {
-      color: #087a63;
-      background: rgba(87, 230, 193, .2);
-    }
-
-    body.light-theme .clickable-paragraph {
-      color: #52328c;
-      background: rgba(168, 121, 255, .1);
-    }
-
-    button {
-      font: inherit;
-    }
+    button { font: inherit; }
 
     .site-header {
       position: sticky;
@@ -142,255 +63,184 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      min-height: 78px;
-      padding: 0 clamp(20px, 6vw, 88px);
-      border-bottom: 1px solid rgba(255, 255, 255, .07);
-      background: rgba(9, 13, 24, .72);
+      min-height: 76px;
+      padding: 0 clamp(16px, 6vw, 80px);
+      border-bottom: 1px solid rgba(255,255,255,.07);
+      background: rgba(9,13,24,.75);
       backdrop-filter: blur(18px);
+    }
+
+    body.light-theme .site-header {
+      border-color: var(--border);
+      background: rgba(244,247,253,.85);
     }
 
     .brand {
       display: inline-flex;
       align-items: center;
-      gap: 11px;
+      gap: 10px;
       color: var(--text);
-      font-size: 15px;
+      font-size: 14px;
       font-weight: 700;
-      letter-spacing: -.02em;
       text-decoration: none;
     }
 
-    .brand-mark {
+    .brand-icon {
       display: grid;
       width: 36px;
       height: 36px;
       place-items: center;
-      border: 1px solid rgba(168, 121, 255, .42);
+      border: 1px solid rgba(168,121,255,.4);
       border-radius: 12px;
-      background: linear-gradient(140deg, rgba(168, 121, 255, .24), rgba(85, 184, 255, .12));
+      background: rgba(168,121,255,.17);
       color: #d8c2ff;
-    }
-
-    .brand-mark svg {
-      width: 19px;
-      height: 19px;
     }
 
     .navigation {
       display: flex;
-      align-items: center;
-      gap: 8px;
+      gap: 7px;
     }
 
     .nav-button {
       display: inline-flex;
       align-items: center;
-      gap: 9px;
-      padding: 10px 14px;
+      gap: 8px;
+      padding: 10px 13px;
       border: 1px solid transparent;
-      border-radius: 12px;
+      border-radius: 11px;
       background: transparent;
       color: var(--muted);
       cursor: pointer;
       font-size: 13px;
       font-weight: 600;
-      transition: color .2s ease, background .2s ease, border-color .2s ease;
     }
 
-    .nav-button svg {
-      width: 17px;
-      height: 17px;
-    }
+    .nav-button svg { width: 17px; height: 17px; }
 
     .nav-button:hover,
     .nav-button.active {
       border-color: var(--border);
-      background: rgba(255, 255, 255, .055);
+      background: rgba(255,255,255,.06);
       color: var(--text);
     }
 
-    .nav-button.active svg {
-      color: #c5a5ff;
-    }
-
     main {
-      width: min(1120px, calc(100% - 40px));
-      min-height: calc(100vh - 145px);
-      margin: 0 auto;
-      padding: 76px 0 80px;
+      width: min(1080px, calc(100% - 36px));
+      min-height: calc(100vh - 140px);
+      margin: auto;
+      padding: 66px 0 76px;
     }
 
-    .page {
-      animation: fade-in .35s ease both;
-    }
+    .page { animation: appear .3s ease both; }
 
     .hero {
-      max-width: 720px;
-      margin: 0 auto 48px;
+      max-width: 700px;
+      margin: 0 auto 42px;
       text-align: center;
     }
 
     .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 18px;
+      margin-bottom: 15px;
       color: #c3a7ff;
       font-size: 11px;
       font-weight: 750;
-      letter-spacing: .17em;
+      letter-spacing: .15em;
       text-transform: uppercase;
     }
 
-    .eyebrow::before {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--mint);
-      box-shadow: 0 0 12px var(--mint);
-      content: "";
-    }
-
-    h1, h2, p {
-      margin-top: 0;
-    }
+    h1, h2, p { margin-top: 0; }
 
     .hero h1 {
-      margin-bottom: 16px;
-      font-size: clamp(38px, 6vw, 66px);
-      font-weight: 750;
-      letter-spacing: -.065em;
-      line-height: 1.05;
+      margin-bottom: 13px;
+      font-size: clamp(38px, 6vw, 64px);
+      letter-spacing: -.06em;
     }
 
     .gradient-text {
-      background: linear-gradient(100deg, #caaaff 12%, #75c7ff 60%, #73efd0);
+      background: linear-gradient(100deg, #caaaff, #75c7ff 60%, #73efd0);
       background-clip: text;
       -webkit-text-fill-color: transparent;
     }
 
-    .hero p {
-      max-width: 530px;
-      margin: 0 auto;
+    .hero p, .page-heading p {
       color: var(--muted);
-      font-size: 15px;
-      line-height: 1.8;
-    }
-
-    .main-cards {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 22px;
+      line-height: 1.7;
     }
 
     .glass-card {
       position: relative;
       overflow: hidden;
       border: 1px solid var(--border);
-      border-radius: 24px;
-      background: linear-gradient(145deg, rgba(25, 33, 53, .82), rgba(15, 21, 36, .72));
-      box-shadow: 0 20px 70px rgba(0, 0, 0, .24), inset 0 1px rgba(255, 255, 255, .035);
+      border-radius: 22px;
+      background: linear-gradient(145deg, rgba(25,33,53,.84), rgba(15,21,36,.76));
+      box-shadow: 0 20px 65px rgba(0,0,0,.22);
       backdrop-filter: blur(18px);
     }
 
-    .main-card {
-      min-height: 390px;
-      padding: 29px;
-      transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+    body.light-theme .glass-card {
+      background: linear-gradient(145deg, rgba(255,255,255,.9), rgba(244,247,253,.86));
+      box-shadow: 0 18px 50px rgba(43,59,94,.1);
     }
 
-    .main-card:hover {
-      transform: translateY(-5px);
-      border-color: rgba(168, 121, 255, .33);
-      box-shadow: 0 24px 75px rgba(0, 0, 0, .35), 0 0 32px rgba(111, 91, 206, .09);
+    .main-cards, .profile-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
     }
 
-    .card-glow {
-      position: absolute;
-      top: -95px;
-      right: -65px;
-      width: 230px;
-      height: 230px;
-      border-radius: 50%;
-      background: rgba(141, 97, 255, .14);
-      filter: blur(55px);
-      pointer-events: none;
-    }
-
-    .tasks-card .card-glow {
-      background: rgba(50, 174, 220, .14);
-    }
+    .main-card { min-height: 370px; padding: 26px; }
+    .main-card:hover { border-color: rgba(168,121,255,.4); }
 
     .card-topline {
-      position: relative;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 25px;
+      margin-bottom: 22px;
     }
 
     .icon-box {
       display: grid;
-      width: 48px;
-      height: 48px;
+      width: 46px;
+      height: 46px;
       place-items: center;
-      border: 1px solid rgba(185, 150, 255, .24);
-      border-radius: 15px;
-      background: linear-gradient(145deg, rgba(168, 121, 255, .2), rgba(85, 184, 255, .08));
+      border: 1px solid rgba(168,121,255,.25);
+      border-radius: 14px;
+      background: rgba(168,121,255,.13);
       color: #cfb7ff;
     }
 
-    .tasks-card .icon-box {
-      border-color: rgba(85, 184, 255, .25);
-      background: linear-gradient(145deg, rgba(85, 184, 255, .2), rgba(87, 230, 193, .08));
-      color: #8bd6ff;
-    }
-
-    .icon-box svg {
-      width: 22px;
-      height: 22px;
-    }
+    .icon-box svg { width: 22px; height: 22px; }
 
     .small-label {
-      color: #808ca7;
-      font-size: 11px;
+      color: var(--muted);
+      font-size: 10px;
       font-weight: 700;
       letter-spacing: .12em;
-      text-transform: uppercase;
     }
 
-    .main-card h2 {
-      position: relative;
-      margin-bottom: 10px;
-      font-size: 25px;
-      letter-spacing: -.04em;
-    }
+    .main-card h2 { margin-bottom: 9px; font-size: 24px; }
 
     .card-description {
-      position: relative;
-      min-height: 48px;
-      margin-bottom: 23px;
+      min-height: 44px;
+      margin-bottom: 19px;
       color: var(--muted);
       font-size: 13px;
       line-height: 1.7;
     }
 
-    .student-list {
-      position: relative;
-      display: grid;
-      gap: 12px;
-      margin-bottom: 23px;
-    }
+    .student-list { display: grid; gap: 10px; margin-bottom: 20px; }
 
     .student-row {
       display: flex;
       align-items: center;
       gap: 12px;
-      padding: 11px 12px;
-      border: 1px solid rgba(255, 255, 255, .07);
-      border-radius: 15px;
-      background: rgba(255, 255, 255, .035);
+      padding: 10px;
+      border: 1px solid rgba(255,255,255,.07);
+      border-radius: 13px;
+      background: rgba(255,255,255,.035);
     }
+
+    body.light-theme .student-row { background: rgba(255,255,255,.55); }
 
     .avatar {
       display: grid;
@@ -398,73 +248,53 @@
       width: 42px;
       height: 42px;
       place-items: center;
-      border: 1px solid rgba(255, 255, 255, .16);
       border-radius: 50%;
       background: linear-gradient(135deg, #aa79fa, #4f90dc);
       color: white;
       font-size: 12px;
       font-weight: 800;
-      letter-spacing: .02em;
-      box-shadow: 0 4px 18px rgba(117, 104, 234, .22);
     }
 
     .student-row:nth-child(2) .avatar {
       background: linear-gradient(135deg, #ec86be, #8f78ec);
     }
 
-    .student-name {
-      margin: 0 0 4px;
-      font-size: 13px;
-      font-weight: 700;
-    }
+    .student-name { margin: 0 0 4px; font-size: 13px; font-weight: 700; }
+    .student-role { margin: 0; color: var(--muted); font-size: 11px; }
 
-    .student-role {
-      margin: 0;
-      color: var(--muted);
-      font-size: 11px;
-    }
-
-    .action-button {
-      position: relative;
+    .action-button, .demo-button {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 9px;
-      min-height: 44px;
-      padding: 0 16px;
-      border: 1px solid rgba(168, 121, 255, .38);
-      border-radius: 12px;
-      background: linear-gradient(110deg, rgba(168, 121, 255, .18), rgba(85, 184, 255, .11));
+      gap: 8px;
+      min-height: 42px;
+      padding: 0 15px;
+      border: 1px solid rgba(168,121,255,.4);
+      border-radius: 11px;
+      background: rgba(168,121,255,.13);
       color: #e2d6ff;
       cursor: pointer;
       font-size: 12px;
       font-weight: 700;
-      transition: background .2s ease, transform .2s ease, border-color .2s ease;
+      transition: transform .2s, background .2s;
     }
 
-    .action-button:hover {
+    .action-button:hover, .demo-button:hover {
       transform: translateY(-2px);
-      border-color: rgba(168, 121, 255, .7);
-      background: linear-gradient(110deg, rgba(168, 121, 255, .28), rgba(85, 184, 255, .18));
-    }
-
-    .action-button svg {
-      width: 15px;
-      height: 15px;
+      background: rgba(168,121,255,.22);
     }
 
     .tasks-card .action-button {
-      border-color: rgba(85, 184, 255, .36);
-      background: linear-gradient(110deg, rgba(85, 184, 255, .16), rgba(87, 230, 193, .1));
+      border-color: rgba(85,184,255,.4);
+      background: rgba(85,184,255,.12);
       color: #bceaff;
     }
 
     .code-preview {
-      position: relative;
       overflow: hidden;
-      margin: 7px 0 20px;
-      border: 1px solid rgba(255, 255, 255, .09);
-      border-radius: 16px;
+      margin: 8px 0 18px;
+      border: 1px solid rgba(255,255,255,.09);
+      border-radius: 14px;
       background: #0b101d;
     }
 
@@ -472,274 +302,136 @@
       display: flex;
       align-items: center;
       gap: 6px;
-      height: 34px;
-      padding: 0 12px;
-      border-bottom: 1px solid rgba(255, 255, 255, .07);
-      background: rgba(255, 255, 255, .025);
+      height: 32px;
+      padding: 0 11px;
+      border-bottom: 1px solid rgba(255,255,255,.07);
     }
 
-    .window-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: #ff7285;
-    }
-
+    .window-dot { width: 7px; height: 7px; border-radius: 50%; background: #ff7285; }
     .window-dot:nth-child(2) { background: #f3c768; }
     .window-dot:nth-child(3) { background: #61d8a4; }
 
     .code-title {
       margin-left: auto;
       color: #74819c;
-      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-      font-size: 9px;
+      font-family: monospace;
+      font-size: 10px;
     }
 
     .code-content {
-      padding: 15px 17px 16px;
+      padding: 13px 16px;
       color: #91a0bd;
-      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-      font-size: 10px;
-      line-height: 1.9;
-      white-space: nowrap;
+      font-family: monospace;
+      font-size: 11px;
+      line-height: 1.8;
     }
 
     .code-line { display: block; }
-    .code-number { color: #53617c; }
     .code-purple { color: #c19bff; }
     .code-blue { color: #71c8ff; }
     .code-green { color: #79dfb2; }
-    .code-yellow { color: #f2d27e; }
 
     .back-button {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      margin-bottom: 28px;
+      gap: 7px;
+      margin-bottom: 24px;
       padding: 9px 13px;
       border: 1px solid var(--border);
-      border-radius: 11px;
-      background: rgba(255, 255, 255, .04);
-      color: #d8deed;
+      border-radius: 10px;
+      background: rgba(255,255,255,.04);
+      color: var(--text);
       cursor: pointer;
       font-size: 12px;
-      font-weight: 650;
-      transition: background .2s ease;
     }
 
-    .back-button:hover {
-      background: rgba(255, 255, 255, .09);
-    }
+    .back-button svg { width: 15px; height: 15px; }
 
-    .back-button svg {
-      width: 15px;
-      height: 15px;
-    }
+    .page-heading { margin-bottom: 26px; }
+    .page-heading h1 { margin: 0 0 9px; font-size: clamp(30px, 5vw, 46px); }
 
-    .page-heading {
-      margin-bottom: 30px;
-    }
-
-    .page-heading h1 {
-      margin: 0 0 10px;
-      font-size: clamp(32px, 5vw, 48px);
-      letter-spacing: -.055em;
-    }
-
-    .page-heading p {
-      margin: 0;
-      color: var(--muted);
-      line-height: 1.7;
-    }
-
-    .profile-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 20px;
-    }
-
-    .profile-card {
-      padding: 25px;
-    }
+    .profile-card { padding: 24px; }
 
     .profile-head {
       display: flex;
       align-items: center;
-      gap: 15px;
-      margin-bottom: 21px;
+      gap: 14px;
+      margin-bottom: 18px;
     }
 
-    .profile-head .avatar {
-      width: 58px;
-      height: 58px;
-      font-size: 15px;
-    }
+    .profile-head .avatar { width: 56px; height: 56px; font-size: 15px; }
+    .profile-head h2 { margin: 0 0 5px; font-size: 19px; }
+    .profile-head p { margin: 0; color: var(--muted); font-size: 12px; }
 
-    .profile-head h2 {
-      margin: 0 0 5px;
-      font-size: 19px;
-      letter-spacing: -.03em;
-    }
-
-    .profile-head p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 12px;
-    }
-
-    .profile-info {
-      display: grid;
-      gap: 12px;
-      margin: 0;
-    }
+    .profile-info { display: grid; gap: 8px; margin: 0; }
 
     .info-item {
       display: flex;
       justify-content: space-between;
-      gap: 15px;
-      padding: 12px 0;
-      border-top: 1px solid rgba(255, 255, 255, .07);
+      gap: 12px;
+      padding: 11px 0;
+      border-top: 1px solid var(--border);
       font-size: 12px;
     }
 
-    .info-item dt {
-      color: var(--muted);
-    }
+    .info-item dt { color: var(--muted); }
+    .info-item dd { margin: 0; text-align: right; font-weight: 600; }
 
-    .info-item dd {
-      margin: 0;
-      color: #e5e9f5;
-      font-weight: 600;
-      text-align: right;
-    }
-
-    .tag-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 18px;
-    }
+    .tag-list { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 16px; }
 
     .tag {
       padding: 7px 10px;
-      border: 1px solid rgba(168, 121, 255, .2);
+      border: 1px solid rgba(168,121,255,.2);
       border-radius: 999px;
-      background: rgba(168, 121, 255, .08);
+      background: rgba(168,121,255,.08);
       color: #cfb8ff;
       font-size: 10px;
-      font-weight: 650;
     }
 
-    .task-sections {
-      display: grid;
-      gap: 20px;
-      max-width: 850px;
-    }
+    .task-sections { display: grid; gap: 18px; max-width: 850px; }
+    .task-section { padding: 23px; }
+    .task-section h2 { margin-bottom: 18px; font-size: 20px; }
 
-    .task-section {
-      padding: 24px;
-    }
+    .task-demo { display: grid; gap: 11px; }
+    .demo-label { color: var(--muted); font-size: 12px; }
 
-    .task-section h2 {
-      margin-bottom: 20px;
-      font-size: 21px;
-      letter-spacing: -.03em;
-    }
-
-    .task-demo {
-      display: grid;
-      gap: 12px;
-    }
-
-    .demo-label {
-      margin-bottom: 2px;
-      color: var(--muted);
-      font-size: 12px;
-    }
-
-    #my-element,
-    .new-div,
-    .old-element,
-    .toggle-element,
-    .classes-output {
+    #my-element, .new-div, .toggle-element, .classes-output {
       padding: 12px 14px;
-      border: 1px solid rgba(255, 255, 255, .09);
-      border-radius: 12px;
-      background: rgba(255, 255, 255, .035);
-      color: #e9edfa;
+      border: 1px solid var(--border);
+      border-radius: 11px;
+      background: rgba(255,255,255,.035);
       font-size: 14px;
     }
 
-    .new-div {
-      border-color: rgba(85, 184, 255, .2);
-      background: rgba(85, 184, 255, .06);
-    }
-
-    .old-element {
-      color: #ff8291;
-    }
+    .new-div { border-color: rgba(85,184,255,.25); }
+    .removed-message { margin: 0; color: var(--mint); font-size: 12px; }
 
     .clickable-paragraph {
       width: fit-content;
       margin: 0;
       padding: 12px 14px;
-      border: 1px solid rgba(168, 121, 255, .2);
-      border-radius: 12px;
-      background: rgba(168, 121, 255, .07);
+      border: 1px solid rgba(168,121,255,.24);
+      border-radius: 11px;
+      background: rgba(168,121,255,.08);
       color: #dfd1ff;
       cursor: pointer;
-      transition: background .2s ease, transform .2s ease;
     }
 
-    .clickable-paragraph:hover {
-      transform: translateY(-2px);
-      background: rgba(168, 121, 255, .13);
-    }
-
-    .removed-message {
-      margin: 0;
-      color: var(--mint);
-      font-size: 12px;
-    }
-
-    .toggle-element {
-      width: fit-content;
-      min-width: 190px;
-      transition: background .2s ease, border-color .2s ease, color .2s ease;
-    }
+    .toggle-element { width: fit-content; min-width: 180px; transition: .2s; }
 
     .toggle-element.active {
-      border-color: rgba(87, 230, 193, .6);
-      background: rgba(87, 230, 193, .15);
+      border-color: rgba(87,230,193,.6);
+      background: rgba(87,230,193,.15);
       color: #8af1d5;
-      box-shadow: 0 0 22px rgba(87, 230, 193, .12);
-    }
-
-    .demo-button {
-      width: fit-content;
-      min-height: 42px;
-      padding: 0 15px;
-      border: 1px solid rgba(85, 184, 255, .35);
-      border-radius: 11px;
-      background: rgba(85, 184, 255, .1);
-      color: #c6eaff;
-      cursor: pointer;
-      font-size: 12px;
-      font-weight: 700;
-      transition: background .2s ease, transform .2s ease;
-    }
-
-    .demo-button:hover {
-      transform: translateY(-2px);
-      background: rgba(85, 184, 255, .18);
+      box-shadow: 0 0 20px rgba(87,230,193,.12);
     }
 
     .classes-output {
-      min-height: 48px;
+      min-height: 44px;
       margin: 0;
       overflow-wrap: anywhere;
       color: #cbb7ff;
-      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-family: monospace;
       font-size: 12px;
       line-height: 1.7;
     }
@@ -748,124 +440,77 @@
       display: flex;
       flex-wrap: wrap;
       align-items: end;
-      gap: 12px;
+      gap: 11px;
     }
 
-    .control-field {
-      display: grid;
-      gap: 7px;
-      color: var(--muted);
-      font-size: 12px;
-    }
+    .control-field { display: grid; gap: 6px; color: var(--muted); font-size: 12px; }
 
-    .control-field input[type="number"] {
-      width: 100px;
-      min-height: 42px;
-      padding: 0 11px;
+    .control-field input {
+      width: 90px;
+      height: 40px;
+      padding: 0 10px;
       border: 1px solid var(--border);
-      border-radius: 10px;
-      outline: none;
-      background: rgba(255, 255, 255, .05);
+      border-radius: 9px;
+      background: rgba(255,255,255,.05);
       color: var(--text);
       font: inherit;
-    }
-
-    .control-field input[type="number"]:focus {
-      border-color: var(--purple);
     }
 
     .color-control {
       display: flex;
       align-items: center;
-      gap: 9px;
-      min-height: 42px;
-      padding: 5px 10px;
+      gap: 8px;
+      min-height: 40px;
+      padding: 5px 9px;
       border: 1px solid var(--border);
-      border-radius: 10px;
-      background: rgba(255, 255, 255, .04);
-      color: var(--text);
+      border-radius: 9px;
       font-size: 12px;
     }
 
-    .color-control input {
-      width: 31px;
-      height: 28px;
-      padding: 0;
-      border: 0;
-      border-radius: 6px;
-      background: transparent;
-      cursor: pointer;
-    }
+    .color-control input { width: 30px; height: 27px; border: 0; cursor: pointer; }
 
-    .table-wrapper {
-      max-width: 100%;
-      overflow: auto;
-    }
+    .table-wrapper { max-width: 100%; overflow: auto; }
 
-    .task-table {
-      width: max-content;
-      min-width: 240px;
-      border-collapse: separate;
-      border-spacing: 5px;
-    }
+    .task-table { width: max-content; min-width: 220px; border-spacing: 5px; }
 
     .task-table td {
-      min-width: 64px;
-      height: 48px;
+      min-width: 60px;
+      height: 46px;
       padding: 8px;
-      border: 1px solid rgba(255, 255, 255, .14);
-      border-radius: 9px;
-      background: rgba(255, 255, 255, .04);
-      color: var(--text);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: rgba(255,255,255,.04);
       cursor: pointer;
       font-size: 12px;
       text-align: center;
-      transition: transform .15s ease, background .15s ease;
     }
 
-    .task-table td:hover {
-      transform: scale(1.04);
-    }
+    .task-table td:hover { outline: 1px solid #a879ff; }
 
-    .result-message {
-      min-height: 20px;
-      margin: 0;
-      color: var(--mint);
-      font-size: 12px;
-    }
+    .result-message { min-height: 18px; margin: 0; color: var(--mint); font-size: 12px; }
 
     .theme-control {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 20px;
-      padding: 16px;
-      border: 1px solid rgba(255, 255, 255, .09);
-      border-radius: 15px;
-      background: rgba(255, 255, 255, .035);
+      gap: 16px;
+      padding: 15px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: rgba(255,255,255,.035);
     }
 
-    .theme-control-text strong {
-      display: block;
-      margin-bottom: 5px;
-      font-size: 14px;
-    }
-
-    .theme-control-text span {
-      color: var(--muted);
-      font-size: 12px;
-    }
+    .theme-control strong { display: block; margin-bottom: 5px; font-size: 14px; }
+    .theme-control span { color: var(--muted); font-size: 12px; }
 
     .theme-switch {
       position: relative;
-      flex: 0 0 auto;
       width: 54px;
       height: 30px;
-      border: 1px solid rgba(168, 121, 255, .45);
+      border: 1px solid rgba(168,121,255,.45);
       border-radius: 999px;
-      background: rgba(168, 121, 255, .2);
+      background: rgba(168,121,255,.2);
       cursor: pointer;
-      transition: background .2s ease;
     }
 
     .theme-switch::after {
@@ -877,12 +522,12 @@
       border-radius: 50%;
       background: #d9c3ff;
       content: "";
-      transition: transform .2s ease, background .2s ease;
+      transition: transform .2s;
     }
 
     .theme-switch[aria-checked="true"] {
-      border-color: rgba(87, 230, 193, .55);
-      background: rgba(87, 230, 193, .2);
+      border-color: rgba(87,230,193,.55);
+      background: rgba(87,230,193,.2);
     }
 
     .theme-switch[aria-checked="true"]::after {
@@ -890,134 +535,47 @@
       background: #7be8ce;
     }
 
-    body.light-theme .theme-control {
-      border-color: rgba(35, 50, 78, .12);
-      background: rgba(255, 255, 255, .56);
-    }
-
-    body.light-theme .color-control,
-    body.light-theme .control-field input[type="number"] {
-      border-color: rgba(35, 50, 78, .17);
-      background: rgba(255, 255, 255, .65);
-      color: var(--text);
-    }
-
-    body.light-theme .task-table td {
-      border-color: rgba(35, 50, 78, .18);
-      background: rgba(255, 255, 255, .6);
-    }
-
-    body.light-theme .demo-button {
-      color: #29435d;
-    }
-
-    [hidden] {
-      display: none !important;
-    }
-
     .site-footer {
-      padding: 18px 20px 25px;
+      padding: 18px;
       color: #68738b;
       font-size: 11px;
       text-align: center;
     }
 
-    .site-footer span {
-      color: #a68ae2;
-    }
+    .site-footer span { color: #a68ae2; }
 
-    button:focus-visible,
-    a:focus-visible {
+    [hidden] { display: none !important; }
+
+    button:focus-visible, a:focus-visible, .clickable-paragraph:focus-visible {
       outline: 2px solid #a879ff;
       outline-offset: 3px;
     }
 
-    @keyframes fade-in {
+    @keyframes appear {
       from { opacity: 0; transform: translateY(7px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
-    @media (max-width: 760px) {
-      main {
-        padding-top: 55px;
-      }
-
-      .main-cards,
-      .profile-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .main-card {
-        min-height: auto;
-      }
+    @media (max-width: 700px) {
+      .main-cards, .profile-grid { grid-template-columns: 1fr; }
+      .main-card { min-height: auto; }
     }
 
     @media (max-width: 520px) {
-      .site-header {
-        min-height: 68px;
-        padding: 0 16px;
-      }
-
-      .brand {
-        gap: 8px;
-        font-size: 12px;
-      }
-
-      .brand-mark {
-        width: 32px;
-        height: 32px;
-      }
-
-      .navigation {
-        gap: 2px;
-      }
-
-      .nav-button {
-        gap: 0;
-        padding: 9px;
-        font-size: 0;
-      }
-
-      .nav-button svg {
-        width: 19px;
-        height: 19px;
-      }
-
-      main {
-        width: min(100% - 28px, 1120px);
-        padding-top: 43px;
-      }
-
-      .hero {
-        margin-bottom: 32px;
-      }
-
-      .hero p {
-        font-size: 13px;
-      }
-
-      .main-card,
-      .profile-card,
-      .task-section {
-        padding: 21px;
-      }
-
-      .info-item {
-        font-size: 11px;
-      }
-
-      .control-field input[type="number"] {
-        width: 84px;
-      }
+      .site-header { min-height: 66px; padding: 0 12px; }
+      .brand { gap: 7px; font-size: 11px; }
+      .brand-icon { width: 32px; height: 32px; }
+      .navigation { gap: 2px; }
+      .nav-button { gap: 0; padding: 9px; font-size: 0; }
+      .nav-button svg { width: 19px; height: 19px; }
+      main { width: calc(100% - 28px); padding-top: 42px; }
+      .main-card, .profile-card, .task-section { padding: 19px; }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      *,
-      *::before,
-      *::after {
+      *, *::before, *::after {
         scroll-behavior: auto !important;
         animation-duration: .01ms !important;
-        animation-iteration-count: 1 !important;
         transition-duration: .01ms !important;
       }
     }
@@ -1025,177 +583,460 @@
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="#" aria-label="Студенттер портфолиосы — басты бет" data-page-link="home">
-      <span class="brand-mark" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none">
-          <path d="M4 7.5 12 3l8 4.5v9L12 21l-8-4.5v-9Z" stroke="currentColor" stroke-width="1.7"/>
-          <path d="m8 12 2.5 2.5L16.5 8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </span>
-      <span>Студенттер портфолиосы</span>
-    </a>
+  <a class="brand" href="#" data-page-link="home" aria-label="Студенттер портфолиосы — басты бет">
+    <span class="brand-icon" aria-hidden="true">✦</span>
+    <span>Студенттер портфолиосы</span>
+  </a>
 
-    <nav class="navigation" aria-label="Негізгі навигация">
-      <button class="nav-button active" type="button" data-page-link="home" aria-label="Басты бет">
-        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-          <path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1V10Z" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-        Басты бет
-      </button>
+  <nav class="navigation" aria-label="Негізгі навигация">
+    <button class="nav-button active" type="button" data-page-link="home">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1V10Z" stroke="currentColor" stroke-width="1.7"/>
+      </svg>
+      Басты бет
+    </button>
 
-      <button class="nav-button" type="button" data-page-link="resume" aria-label="Резюме">
-        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-          <path d="M7 3h7l5 5v13H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
-          <path d="M14 3v5h5M9 13h6M9 17h6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
-        </svg>
-        Резюме
-      </button>
+    <button class="nav-button" type="button" data-page-link="resume">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M7 3h7l5 5v13H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="1.7"/>
+        <path d="M14 3v5h5M9 13h6M9 17h6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+      </svg>
+      Резюме
+    </button>
 
-      <button class="nav-button" type="button" data-page-link="tasks" aria-label="Тапсырмалар">
-        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-          <path d="M9 6h11M9 12h11M9 18h11M4 6h.01M4 12h.01M4 18h.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-        </svg>
-        Тапсырмалар
-      </button>
-    </nav>
-  </header>
+    <button class="nav-button" type="button" data-page-link="tasks">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M9 6h11M9 12h11M9 18h11M4 6h.01M4 12h.01M4 18h.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+      Тапсырмалар
+    </button>
+  </nav>
+</header>
 
-  <main>
-    <section class="page" id="home-page">
-      <div class="hero">
-        <div class="eyebrow">Біздің студенттік портфолио</div>
-        <h1>Идеядан <span class="gradient-text">нәтижеге</span></h1>
-        <p>Білімімізді, дағдыларымызды және жасаған жұмыстарымызды бір жерге жинадық.</p>
-      </div>
+<main>
+  <section class="page" id="home-page">
+    <div class="hero">
+      <div class="eyebrow">Біздің студенттік портфолио</div>
+      <h1>Идеядан <span class="gradient-text">нәтижеге</span></h1>
+      <p>Білімімізді, дағдыларымызды және жасаған жұмыстарымызды бір жерге жинадық.</p>
+    </div>
 
-      <div class="main-cards">
-        <article class="glass-card main-card">
-          <div class="card-glow"></div>
-          <div class="card-topline">
-            <span class="icon-box" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none">
-                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
-              </svg>
-            </span>
-            <span class="small-label">01 / Таныстыру</span>
-          </div>
+    <div class="main-cards">
+      <article class="glass-card main-card">
+        <div class="card-topline">
+          <span class="icon-box" aria-hidden="true">♙</span>
+          <span class="small-label">01 / ТАНЫСТЫРУ</span>
+        </div>
+        <h2>Резюме</h2>
+        <p class="card-description">Біздің біліміміз және IT саласындағы негізгі бағыттарымыз.</p>
 
-          <h2>Резюме</h2>
-          <p class="card-description">Біздің біліміміз, тәжірибеміз және IT саласындағы негізгі бағыттарымыз.</p>
-
-          <div class="student-list">
-            <div class="student-row">
-              <div class="avatar" aria-label="Makar Nurgul аватары">MN</div>
-              <div>
-                <p class="student-name">Makar Nurgul</p>
-                <p class="student-role">IT Specialist</p>
-              </div>
-            </div>
-
-            <div class="student-row">
-              <div class="avatar" aria-label="Khalel Asel аватары">KA</div>
-              <div>
-                <p class="student-name">Khalel Asel</p>
-                <p class="student-role">UI/UX Designer</p>
-              </div>
-            </div>
-          </div>
-
-          <button class="action-button" type="button" data-page-link="resume">
-            Толығырақ
-            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </button>
-        </article>
-
-        <article class="glass-card main-card tasks-card">
-          <div class="card-glow"></div>
-          <div class="card-topline">
-            <span class="icon-box" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none">
-                <path d="m8 8-4 4 4 4m8-8 4 4-4 4m-3-11-2 14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </span>
-            <span class="small-label">02 / Жұмыстар</span>
-          </div>
-
-          <h2>Тапсырмалар</h2>
-          <p class="card-description">Оқу барысында орындалған тапсырмалар мен интерфейс жобалары.</p>
-
-          <div class="code-preview" aria-label="Код интерфейсінің алдын ала көрінісі">
-            <div class="code-header">
-              <span class="window-dot"></span>
-              <span class="window-dot"></span>
-              <span class="window-dot"></span>
-              <span class="code-title">portfolio.js</span>
-            </div>
-            <div class="code-content">
-              <span class="code-line"><span class="code-number">01</span> <span class="code-purple">const</span> <span class="code-blue">portfolio</span> = {</span>
-              <span class="code-line"><span class="code-number">02</span> &nbsp;design: <span class="code-green">"creative"</span>,</span>
-              <span class="code-line"><span class="code-number">03</span> &nbsp;code: <span class="code-green">"clean"</span>,</span>
-              <span class="code-line"><span class="code-number">04</span> &nbsp;ideas: <span class="code-yellow">∞</span></span>
-              <span class="code-line"><span class="code-number">05</span> };</span>
-            </div>
-          </div>
-
-          <button class="action-button" type="button" data-page-link="tasks">
-            Бетке өту
-            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M7 17 17 7M7 7h10v10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </button>
-        </article>
-      </div>
-    </section>
-
-    <section class="page" id="resume-page" hidden>
-      <button class="back-button" type="button" data-page-link="home">
-        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-          <path d="m15 18-6-6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-        Артқа қайту
-      </button>
-
-      <div class="page-heading">
-        <div class="eyebrow">Біздің команда</div>
-        <h1>Студенттер <span class="gradient-text">резюмесі</span></h1>
-        <p>Астана Халықаралық Университетінің 3-курс студенттері.</p>
-      </div>
-
-      <div class="profile-grid">
-        <article class="glass-card profile-card">
-          <div class="profile-head">
-            <div class="avatar" aria-label="Makar Nurgul аватары">MN</div>
+        <div class="student-list">
+          <div class="student-row">
+            <div class="avatar">MN</div>
             <div>
-              <h2>Makar Nurgul</h2>
-              <p>IT Specialist</p>
+              <p class="student-name">Makar Nurgul</p>
+              <p class="student-role">IT Specialist</p>
             </div>
           </div>
-
-          <dl class="profile-info">
-            <div class="info-item">
-              <dt>Университет</dt>
-              <dd>Астана Халықаралық Университеті</dd>
+          <div class="student-row">
+            <div class="avatar">KA</div>
+            <div>
+              <p class="student-name">Khalel Asel</p>
+              <p class="student-role">UI/UX Designer</p>
             </div>
-            <div class="info-item">
-              <dt>Курс</dt>
-              <dd>3-курс</dd>
-            </div>
-            <div class="info-item">
-              <dt>Бағыты</dt>
-              <dd>IT Specialist</dd>
-            </div>
-          </dl>
-
-          <div class="tag-list" aria-label="Дағдылары">
-            <span class="tag">IT</span>
-            <span class="tag">Технология</span>
-            <span class="tag">Даму</span>
           </div>
-        </article>
+        </div>
 
-        <article class="glass-card profile-card">
-          <div class="profile-head"> **…**
+        <button class="action-button" type="button" data-page-link="resume">
+          Толығырақ →
+        </button>
+      </article>
 
-_This response is too long to display in full._
+      <article class="glass-card main-card tasks-card">
+        <div class="card-topline">
+          <span class="icon-box" aria-hidden="true">&lt;/&gt;</span>
+          <span class="small-label">02 / ЖҰМЫСТАР</span>
+        </div>
+        <h2>Тапсырмалар</h2>
+        <p class="card-description">JavaScript тапсырмалары: DOM, кесте және тақырып ауыстырғышы.</p>
+
+        <div class="code-preview" aria-label="Кодтың алдын ала көрінісі">
+          <div class="code-header">
+            <span class="window-dot"></span>
+            <span class="window-dot"></span>
+            <span class="window-dot"></span>
+            <span class="code-title">portfolio.js</span>
+          </div>
+          <div class="code-content">
+            <span class="code-line"><span class="code-purple">const</span> <span class="code-blue">portfolio</span> = {</span>
+            <span class="code-line">&nbsp;design: <span class="code-green">"creative"</span>,</span>
+            <span class="code-line">&nbsp;code: <span class="code-green">"clean"</span></span>
+            <span class="code-line">};</span>
+          </div>
+        </div>
+
+        <button class="action-button" type="button" data-page-link="tasks">
+          Бетке өту →
+        </button>
+      </article>
+    </div>
+  </section>
+
+  <section class="page" id="resume-page" hidden>
+    <button class="back-button" type="button" data-page-link="home">← Артқа қайту</button>
+
+    <div class="page-heading">
+      <div class="eyebrow">Біздің команда</div>
+      <h1>Студенттер <span class="gradient-text">резюмесі</span></h1>
+      <p>Астана Халықаралық Университетінің 3-курс студенттері.</p>
+    </div>
+
+    <div class="profile-grid">
+      <article class="glass-card profile-card">
+        <div class="profile-head">
+          <div class="avatar">MN</div>
+          <div>
+            <h2>Makar Nurgul</h2>
+            <p>IT Specialist</p>
+          </div>
+        </div>
+        <dl class="profile-info">
+          <div class="info-item">
+            <dt>Университет</dt>
+            <dd>Астана Халықаралық Университеті</dd>
+          </div>
+          <div class="info-item">
+            <dt>Курс</dt>
+            <dd>3-курс</dd>
+          </div>
+          <div class="info-item">
+            <dt>Бағыты</dt>
+            <dd>IT Specialist</dd>
+          </div>
+        </dl>
+        <div class="tag-list">
+          <span class="tag">IT</span>
+          <span class="tag">Технология</span>
+        </div>
+      </article>
+
+      <article class="glass-card profile-card">
+        <div class="profile-head">
+          <div class="avatar">KA</div>
+          <div>
+            <h2>Khalel Asel</h2>
+            <p>UI/UX Designer</p>
+          </div>
+        </div>
+        <dl class="profile-info">
+          <div class="info-item">
+            <dt>Университет</dt>
+            <dd>Астана Халықаралық Университеті</dd>
+          </div>
+          <div class="info-item">
+            <dt>Курс</dt>
+            <dd>3-курс</dd>
+          </div>
+          <div class="info-item">
+            <dt>Бағыты</dt>
+            <dd>UI/UX Designer</dd>
+          </div>
+        </dl>
+        <div class="tag-list">
+          <span class="tag">UI дизайн</span>
+          <span class="tag">UX зерттеу</span>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="page" id="tasks-page" hidden>
+    <button class="back-button" type="button" data-page-link="home">← Артқа қайту</button>
+
+    <div class="page-heading">
+      <div class="eyebrow">Орындалған тапсырмалар</div>
+      <h1><span class="gradient-text">Тапсырмалар</span></h1>
+    </div>
+
+    <div class="task-sections">
+      <article class="glass-card task-section">
+        <h2>1-тапсырма</h2>
+        <div class="task-demo" id="taskOneDemo">
+          <span class="demo-label">ID элементінің мәтіні:</span>
+          <div id="my-element"></div>
+
+          <span class="demo-label">Жаңа қосылған элемент:</span>
+          <div id="newElementContainer"></div>
+
+          <span class="demo-label">Абзацты басып көріңіз:</span>
+          <div id="paragraphContainer"></div>
+
+          <p class="removed-message" id="removedMessage" hidden>
+            Ескі элемент өшірілді.
+          </p>
+        </div>
+      </article>
+
+      <article class="glass-card task-section">
+        <h2>2-тапсырма</h2>
+        <div class="task-demo">
+          <span class="demo-label">active класын қосып немесе өшіру:</span>
+          <div class="toggle-element" id="toggleElement">Арнайы элемент</div>
+          <button class="demo-button" type="button" id="toggleActiveButton">
+            active класын ауыстыру
+          </button>
+          <span class="demo-label">Элементтердің кластары:</span>
+          <p class="classes-output" id="classesListP"></p>
+        </div>
+      </article>
+
+      <article class="glass-card task-section">
+        <h2>3-тапсырма</h2>
+        <div class="task-demo">
+          <div class="table-controls">
+            <label class="control-field">
+              Жол саны
+              <input id="rowCount" type="number" min="1" max="20" value="3">
+            </label>
+
+            <label class="control-field">
+              Баған саны
+              <input id="columnCount" type="number" min="1" max="20" value="3">
+            </label>
+
+            <button class="demo-button" type="button" id="createTableButton">
+              Кесте құру
+            </button>
+
+            <label class="color-control">
+              Ұяшық түсі
+              <input id="cellColorPicker" type="color" value="#a879ff" aria-label="Ұяшық түсін таңдау">
+            </label>
+          </div>
+
+          <div class="table-wrapper" id="tableContainer"></div>
+
+          <button class="demo-button" type="button" id="countColorButton">
+            Таңдалған түсті санау
+          </button>
+          <p class="result-message" id="colorCountResult" aria-live="polite"></p>
+        </div>
+      </article>
+
+      <article class="glass-card task-section">
+        <h2>4-тапсырма</h2>
+        <div class="theme-control">
+          <div>
+            <strong>Қараңғы тақырып</strong>
+            <span id="themeStatus" aria-live="polite">Қараңғы тақырып қосулы</span>
+          </div>
+          <button
+            class="theme-switch"
+            id="themeToggle"
+            type="button"
+            role="switch"
+            aria-checked="false"
+            aria-label="Қараңғы тақырыпты қосу немесе өшіру">
+          </button>
+        </div>
+      </article>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <span>Студенттер портфолиосы</span>
+</footer>
+<script>
+  (() => {
+    const pages = {
+      home: document.getElementById("home-page"),
+      resume: document.getElementById("resume-page"),
+      tasks: document.getElementById("tasks-page")
+    };
+
+    const navButtons = document.querySelectorAll(".nav-button[data-page-link]");
+
+    function showPage(pageName) {
+      if (!pages[pageName]) return;
+
+      Object.entries(pages).forEach(([name, page]) => {
+        page.hidden = name !== pageName;
+      });
+
+      navButtons.forEach((button) => {
+        const isActive = button.dataset.pageLink === pageName;
+        button.classList.toggle("active", isActive);
+
+        if (isActive) {
+          button.setAttribute("aria-current", "page");
+        } else {
+          button.removeAttribute("aria-current");
+        }
+      });
+
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    document.querySelectorAll("[data-page-link]").forEach((button) => {
+      button.addEventListener("click", (event) => {
+        event.preventDefault();
+        showPage(button.dataset.pageLink);
+      });
+    });
+
+    // 1-тапсырма: DOM элементтерін жасау, өзгерту және өшіру
+    document.getElementById("my-element").textContent = "Сәлем, әлем!";
+
+    const newDiv = document.createElement("div");
+    newDiv.className = "new-div";
+    newDiv.textContent = "Мен жаңа элементпін";
+    document.getElementById("newElementContainer").appendChild(newDiv);
+
+    const oldElement = document.createElement("div");
+    oldElement.className = "old-element";
+    oldElement.textContent = "Ескі элемент";
+    document.getElementById("taskOneDemo").appendChild(oldElement);
+    document.querySelector(".old-element").remove();
+    document.getElementById("removedMessage").hidden = false;
+
+    const paragraph = document.createElement("p");
+    paragraph.className = "clickable-paragraph";
+    paragraph.textContent = "Бұл ауыспалы абзац";
+    paragraph.tabIndex = 0;
+
+    function changeParagraphStyle() {
+      paragraph.style.color = "red";
+      paragraph.style.fontSize = "24px";
+    }
+
+    paragraph.addEventListener("click", changeParagraphStyle);
+    paragraph.addEventListener("keydown", (event) => {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        changeParagraphStyle();
+      }
+    });
+
+    document.getElementById("paragraphContainer").appendChild(paragraph);
+
+    // 2-тапсырма: active класын ауыстыру және кластарының тізімін көрсету
+    const toggleElement = document.getElementById("toggleElement");
+    const classesListP = document.getElementById("classesListP");
+
+    function printAllClasses() {
+      const classes = [
+        ...new Set(
+          [...document.querySelectorAll("*")]
+            .flatMap((element) => [...element.classList])
+        )
+      ];
+
+      console.log("Барлық элемент кластары:", classes);
+      classesListP.textContent = classes.length ? classes.join(", ") : "Кластар жоқ";
+    }
+
+    document.getElementById("toggleActiveButton").addEventListener("click", () => {
+      toggleElement.classList.toggle("active");
+      printAllClasses();
+    });
+
+    // 3-тапсырма: кесте құру және таңдалған түсті санау
+    const rowInput = document.getElementById("rowCount");
+    const columnInput = document.getElementById("columnCount");
+    const tableContainer = document.getElementById("tableContainer");
+    const colorPicker = document.getElementById("cellColorPicker");
+    const countResult = document.getElementById("colorCountResult");
+
+    function countCellsByColor(color) {
+      const wantedColor = color.toLowerCase();
+      const cells = tableContainer.querySelectorAll(".table-cell");
+
+      const count = [...cells].filter((cell) => {
+        return cell.dataset.cellColor === wantedColor;
+      }).length;
+
+      countResult.textContent = `Таңдалған түспен боялған ұяшықтар саны: ${count}`;
+      return count;
+    }
+
+    function createTable(rows, columns) {
+      const table = document.createElement("table");
+      table.className = "task-table";
+      table.setAttribute("aria-label", `${rows} жол, ${columns} баған`);
+
+      for (let rowIndex = 0; rowIndex < rows; rowIndex++) {
+        const row = document.createElement("tr");
+
+        for (let columnIndex = 0; columnIndex < columns; columnIndex++) {
+          const cell = document.createElement("td");
+          cell.className = "table-cell";
+          cell.textContent = `${rowIndex + 1}.${columnIndex + 1}`;
+          cell.dataset.cellColor = "";
+
+          cell.addEventListener("click", () => {
+            const selectedColor = colorPicker.value.toLowerCase();
+
+            if (cell.dataset.cellColor === selectedColor) {
+              cell.dataset.cellColor = "";
+              cell.style.backgroundColor = "";
+            } else {
+              cell.dataset.cellColor = selectedColor;
+              cell.style.backgroundColor = selectedColor;
+            }
+
+            countCellsByColor(selectedColor);
+          });
+
+          row.appendChild(cell);
+        }
+
+        table.appendChild(row);
+      }
+
+      tableContainer.replaceChildren(table);
+      countResult.textContent = `${rows} жол және ${columns} бағаннан тұратын кесте құрылды.`;
+      printAllClasses();
+    }
+
+    document.getElementById("createTableButton").addEventListener("click", () => {
+      const rows = Math.min(20, Math.max(1, Number.parseInt(rowInput.value, 10) || 1));
+      const columns = Math.min(20, Math.max(1, Number.parseInt(columnInput.value, 10) || 1));
+
+      rowInput.value = rows;
+      columnInput.value = columns;
+      createTable(rows, columns);
+    });
+
+    document.getElementById("countColorButton").addEventListener("click", () => {
+      countCellsByColor(colorPicker.value);
+    });
+
+    colorPicker.addEventListener("input", () => {
+      countCellsByColor(colorPicker.value);
+    });
+
+    createTable(3, 3);
+
+    // 4-тапсырма: қараңғы және жарық тақырыпты ауыстыру
+    const themeToggle = document.getElementById("themeToggle");
+    const themeStatus = document.getElementById("themeStatus");
+
+    themeToggle.addEventListener("click", () => {
+      const lightThemeEnabled = document.body.classList.toggle("light-theme");
+      themeToggle.setAttribute("aria-checked", String(lightThemeEnabled));
+
+      if (lightThemeEnabled) {
+        themeStatus.textContent = "Жарық тақырып қосулы";
+        themeToggle.setAttribute("aria-label", "Қараңғы тақырыпты қосу");
+      } else {
+        themeStatus.textContent = "Қараңғы тақырып қосулы";
+        themeToggle.setAttribute("aria-label", "Жарық тақырыпты қосу");
+      }
+    });
+
+    printAllClasses();
+  })();
+</script>
+</body>
+</html>
