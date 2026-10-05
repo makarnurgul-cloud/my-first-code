@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="kk">
 <head>
@@ -33,6 +32,7 @@
         radial-gradient(ellipse at 90% 30%, rgba(36, 139, 190, .13), transparent 34%),
         var(--bg);
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      transition: color .25s ease, background .25s ease;
     }
 
     body::before {
@@ -46,6 +46,89 @@
       content: "";
       mask-image: linear-gradient(to bottom, black, transparent 85%);
       pointer-events: none;
+    }
+
+    body.light-theme {
+      color-scheme: light;
+      --bg: #edf1fa;
+      --text: #1d2940;
+      --muted: #63718a;
+      --border: rgba(35, 50, 78, .14);
+      background:
+        radial-gradient(ellipse at 14% 10%, rgba(168, 121, 255, .14), transparent 36%),
+        radial-gradient(ellipse at 90% 30%, rgba(85, 184, 255, .13), transparent 34%),
+        var(--bg);
+    }
+
+    body.light-theme::before {
+      background-image:
+        linear-gradient(rgba(40, 54, 80, .035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(40, 54, 80, .035) 1px, transparent 1px);
+    }
+
+    body.light-theme .site-header {
+      border-bottom-color: rgba(35, 50, 78, .12);
+      background: rgba(244, 247, 253, .83);
+    }
+
+    body.light-theme .brand,
+    body.light-theme .nav-button {
+      color: var(--text);
+    }
+
+    body.light-theme .nav-button:hover,
+    body.light-theme .nav-button.active {
+      border-color: rgba(35, 50, 78, .14);
+      background: rgba(255, 255, 255, .7);
+    }
+
+    body.light-theme .glass-card {
+      border-color: rgba(35, 50, 78, .13);
+      background: linear-gradient(145deg, rgba(255, 255, 255, .86), rgba(244, 247, 253, .84));
+      box-shadow: 0 20px 60px rgba(43, 59, 94, .1), inset 0 1px rgba(255, 255, 255, .8);
+    }
+
+    body.light-theme .student-row,
+    body.light-theme .task-item {
+      border-color: rgba(35, 50, 78, .1);
+      background: rgba(255, 255, 255, .55);
+    }
+
+    body.light-theme .info-item {
+      border-top-color: rgba(35, 50, 78, .1);
+    }
+
+    body.light-theme .info-item dd {
+      color: #26344e;
+    }
+
+    body.light-theme .back-button {
+      border-color: rgba(35, 50, 78, .14);
+      background: rgba(255, 255, 255, .56);
+      color: #26344e;
+    }
+
+    body.light-theme #my-element,
+    body.light-theme .new-div,
+    body.light-theme .old-element,
+    body.light-theme .toggle-element,
+    body.light-theme .classes-output {
+      color: #26344e;
+      background: rgba(255, 255, 255, .62);
+    }
+
+    body.light-theme .new-div {
+      border-color: rgba(85, 184, 255, .35);
+    }
+
+    body.light-theme .toggle-element.active {
+      color: #087a63;
+      background: rgba(87, 230, 193, .2);
+    }
+
+    body.light-theme .clickable-paragraph {
+      color: #52328c;
+      background: rgba(168, 121, 255, .1);
     }
 
     button {
@@ -661,6 +744,173 @@
       line-height: 1.7;
     }
 
+    .table-controls {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: end;
+      gap: 12px;
+    }
+
+    .control-field {
+      display: grid;
+      gap: 7px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .control-field input[type="number"] {
+      width: 100px;
+      min-height: 42px;
+      padding: 0 11px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      outline: none;
+      background: rgba(255, 255, 255, .05);
+      color: var(--text);
+      font: inherit;
+    }
+
+    .control-field input[type="number"]:focus {
+      border-color: var(--purple);
+    }
+
+    .color-control {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      min-height: 42px;
+      padding: 5px 10px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: rgba(255, 255, 255, .04);
+      color: var(--text);
+      font-size: 12px;
+    }
+
+    .color-control input {
+      width: 31px;
+      height: 28px;
+      padding: 0;
+      border: 0;
+      border-radius: 6px;
+      background: transparent;
+      cursor: pointer;
+    }
+
+    .table-wrapper {
+      max-width: 100%;
+      overflow: auto;
+    }
+
+    .task-table {
+      width: max-content;
+      min-width: 240px;
+      border-collapse: separate;
+      border-spacing: 5px;
+    }
+
+    .task-table td {
+      min-width: 64px;
+      height: 48px;
+      padding: 8px;
+      border: 1px solid rgba(255, 255, 255, .14);
+      border-radius: 9px;
+      background: rgba(255, 255, 255, .04);
+      color: var(--text);
+      cursor: pointer;
+      font-size: 12px;
+      text-align: center;
+      transition: transform .15s ease, background .15s ease;
+    }
+
+    .task-table td:hover {
+      transform: scale(1.04);
+    }
+
+    .result-message {
+      min-height: 20px;
+      margin: 0;
+      color: var(--mint);
+      font-size: 12px;
+    }
+
+    .theme-control {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 16px;
+      border: 1px solid rgba(255, 255, 255, .09);
+      border-radius: 15px;
+      background: rgba(255, 255, 255, .035);
+    }
+
+    .theme-control-text strong {
+      display: block;
+      margin-bottom: 5px;
+      font-size: 14px;
+    }
+
+    .theme-control-text span {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .theme-switch {
+      position: relative;
+      flex: 0 0 auto;
+      width: 54px;
+      height: 30px;
+      border: 1px solid rgba(168, 121, 255, .45);
+      border-radius: 999px;
+      background: rgba(168, 121, 255, .2);
+      cursor: pointer;
+      transition: background .2s ease;
+    }
+
+    .theme-switch::after {
+      position: absolute;
+      top: 3px;
+      left: 3px;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: #d9c3ff;
+      content: "";
+      transition: transform .2s ease, background .2s ease;
+    }
+
+    .theme-switch[aria-checked="true"] {
+      border-color: rgba(87, 230, 193, .55);
+      background: rgba(87, 230, 193, .2);
+    }
+
+    .theme-switch[aria-checked="true"]::after {
+      transform: translateX(24px);
+      background: #7be8ce;
+    }
+
+    body.light-theme .theme-control {
+      border-color: rgba(35, 50, 78, .12);
+      background: rgba(255, 255, 255, .56);
+    }
+
+    body.light-theme .color-control,
+    body.light-theme .control-field input[type="number"] {
+      border-color: rgba(35, 50, 78, .17);
+      background: rgba(255, 255, 255, .65);
+      color: var(--text);
+    }
+
+    body.light-theme .task-table td {
+      border-color: rgba(35, 50, 78, .18);
+      background: rgba(255, 255, 255, .6);
+    }
+
+    body.light-theme .demo-button {
+      color: #29435d;
+    }
+
     [hidden] {
       display: none !important;
     }
@@ -677,8 +927,7 @@
     }
 
     button:focus-visible,
-    a:focus-visible,
-    .clickable-paragraph:focus-visible {
+    a:focus-visible {
       outline: 2px solid #a879ff;
       outline-offset: 3px;
     }
@@ -755,6 +1004,10 @@
 
       .info-item {
         font-size: 11px;
+      }
+
+      .control-field input[type="number"] {
+        width: 84px;
       }
     }
 
@@ -838,6 +1091,7 @@
                 <p class="student-role">IT Specialist</p>
               </div>
             </div>
+
             <div class="student-row">
               <div class="avatar" aria-label="Khalel Asel аватары">KA</div>
               <div>
@@ -942,201 +1196,6 @@
         </article>
 
         <article class="glass-card profile-card">
-          <div class="profile-head">
-            <div class="avatar" aria-label="Khalel Asel аватары">KA</div>
-            <div>
-              <h2>Khalel Asel</h2>
-              <p>UI/UX Designer</p>
-            </div>
-          </div>
+          <div class="profile-head"> **…**
 
-          <dl class="profile-info">
-            <div class="info-item">
-              <dt>Университет</dt>
-              <dd>Астана Халықаралық Университеті</dd>
-            </div>
-            <div class="info-item">
-              <dt>Курс</dt>
-              <dd>3-курс</dd>
-            </div>
-            <div class="info-item">
-              <dt>Бағыты</dt>
-              <dd>UI/UX Designer</dd>
-            </div>
-          </dl>
-
-          <div class="tag-list" aria-label="Дағдылары">
-            <span class="tag">UI дизайн</span>
-            <span class="tag">UX зерттеу</span>
-            <span class="tag">Интерфейс</span>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section class="page" id="tasks-page" hidden>
-      <button class="back-button" type="button" data-page-link="home">
-        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-          <path d="m15 18-6-6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-        Артқа қайту
-      </button>
-
-      <div class="page-heading">
-        <div class="eyebrow">Орындалған тапсырмалар</div>
-        <h1><span class="gradient-text">Тапсырмалар</span></h1>
-      </div>
-
-      <div class="task-sections">
-        <article class="glass-card task-section">
-          <h2>1-тапсырма</h2>
-          <div class="task-demo" id="taskOneDemo">
-            <span class="demo-label">ID элементінің мәтіні:</span>
-
-            <div id="my-element"></div>
-
-            <span class="demo-label">Жаңа қосылған элемент:</span>
-
-            <div class="new-element-container" id="newElementContainer"></div>
-
-            <span class="demo-label">Абзацты басып көріңіз:</span>
-
-            <div id="paragraphContainer"></div>
-
-            <p class="removed-message" id="removedMessage" hidden>
-              Ескі элемент өшірілді.
-            </p>
-          </div>
-        </article>
-
-        <article class="glass-card task-section">
-          <h2>2-тапсырма</h2>
-          <div class="task-demo">
-            <span class="demo-label">Белсенді класын қосып/өшіру:</span>
-
-            <div class="toggle-element" id="toggleElement">
-              Арнайы элемент
-            </div>
-
-            <button class="demo-button" type="button" id="toggleActiveButton">
-              active класын қосу / өшіру
-            </button>
-
-            <span class="demo-label">Элементтердің кластары:</span>
-
-            <p class="classes-output" id="classesListP"></p>
-          </div>
-        </article>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <span>Студенттер портфолиосы</span> · 2025
-  </footer>
-
-  <script>
-    (() => {
-      const pages = {
-        home: document.getElementById("home-page"),
-        resume: document.getElementById("resume-page"),
-        tasks: document.getElementById("tasks-page")
-      };
-
-      const navButtons = document.querySelectorAll(".nav-button[data-page-link]");
-
-      function showPage(pageName) {
-        if (!pages[pageName]) return;
-
-        Object.entries(pages).forEach(([name, page]) => {
-          page.hidden = name !== pageName;
-        });
-
-        navButtons.forEach((button) => {
-          const isActive = button.dataset.pageLink === pageName;
-          button.classList.toggle("active", isActive);
-
-          if (isActive) {
-            button.setAttribute("aria-current", "page");
-          } else {
-            button.removeAttribute("aria-current");
-          }
-        });
-
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      }
-
-      document.querySelectorAll("[data-page-link]").forEach((button) => {
-        button.addEventListener("click", (event) => {
-          event.preventDefault();
-          showPage(button.dataset.pageLink);
-        });
-      });
-
-      // 1-тапсырма
-      const myElement = document.getElementById("my-element");
-      myElement.textContent = "Сәлем, әлем!";
-
-      const newDiv = document.createElement("div");
-      newDiv.className = "new-div";
-      newDiv.textContent = "Мен жаңа элементпін";
-      document.getElementById("newElementContainer").appendChild(newDiv);
-
-      const oldElement = document.createElement("div");
-      oldElement.className = "old-element";
-      oldElement.textContent = "Өшірілетін ескі элемент";
-      document.getElementById("taskOneDemo").appendChild(oldElement);
-
-      document.querySelector(".old-element").remove();
-      document.getElementById("removedMessage").hidden = false;
-
-      const variableParagraph = document.createElement("p");
-      variableParagraph.className = "clickable-paragraph";
-      variableParagraph.textContent = "Бұл ауыспалы абзац";
-      variableParagraph.tabIndex = 0;
-
-      function changeParagraphStyle() {
-        variableParagraph.style.color = "red";
-        variableParagraph.style.fontSize = "24px";
-      }
-
-      variableParagraph.addEventListener("click", changeParagraphStyle);
-      variableParagraph.addEventListener("keydown", (event) => {
-        if (event.key === "Enter" || event.key === " ") {
-          event.preventDefault();
-          changeParagraphStyle();
-        }
-      });
-
-      document.getElementById("paragraphContainer").appendChild(variableParagraph);
-
-      // 2-тапсырма
-      const toggleElement = document.getElementById("toggleElement");
-      const toggleButton = document.getElementById("toggleActiveButton");
-      const classesListP = document.getElementById("classesListP");
-
-      function printAllClasses() {
-        const classNames = [
-          ...new Set(
-            [...document.querySelectorAll("*")]
-              .flatMap((element) => [...element.classList])
-          )
-        ];
-
-        console.log("Барлық элемент кластары:", classNames);
-        classesListP.textContent = classNames.length
-          ? classNames.join(", ")
-          : "Кластар жоқ";
-      }
-
-      toggleButton.addEventListener("click", () => {
-        toggleElement.classList.toggle("active");
-        printAllClasses();
-      });
-
-      printAllClasses();
-    })();
-  </script>
-</body>
-</html>
-```
+_This response is too long to display in full._
